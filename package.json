@@ -12,7 +12,9 @@
   "author": "Chapel",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^3.0.5",
     "istanbul": "^0.4.5",
+    "jshint": "^2.10.2",
     "mocha": "^6.2.0",
     "seedrandom": "^3.0.1",
     "uglify-js": "^3.6.0"
