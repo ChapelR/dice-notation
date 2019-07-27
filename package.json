@@ -1,0 +1,20 @@
+{
+  "name": "dice-notation",
+  "version": "0.1.0",
+  "description": "A dice notation parser and roller.",
+  "main": "dice.js",
+  "scripts": {
+    "test": "mocha test.js",
+    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./test.js",
+    "lint": "jshint dice.js",
+    "build": "uglifyjs ./dice.js -o dist/dice.min.js"
+  },
+  "author": "Chapel",
+  "license": "MIT",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^6.2.0",
+    "seedrandom": "^3.0.1",
+    "uglify-js": "^3.6.0"
+  }
+}
