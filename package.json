@@ -1,6 +1,6 @@
 {
-  "name": "dice-notation",
-  "version": "0.1.0",
+  "name": "dice-notation-js",
+  "version": "0.2.0",
   "description": "A dice notation parser and roller.",
   "main": "dice.js",
   "scripts": {
@@ -18,5 +18,20 @@
     "mocha": "^6.2.0",
     "seedrandom": "^3.0.1",
     "uglify-js": "^3.6.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChapelR/dice-notation.git"
+  },
+  "keywords": [
+    "dice",
+    "dice-roller",
+    "rpg",
+    "parser"
+  ],
+  "bugs": {
+    "url": "https://github.com/ChapelR/dice-notation/issues"
+  },
+  "homepage": "https://github.com/ChapelR/dice-notation#readme"
 }
