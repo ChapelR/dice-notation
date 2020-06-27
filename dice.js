@@ -13,6 +13,10 @@
     var diceNotation = /(\d+?)d(\d+?)(.*)$/i;
     var modifier = /([+-])(\d+)/i;
 
+    function compressNotation (notation) {
+        return notation.trim().replace(/\s+/g, '');
+    }
+
     function validNumber (n, err) {
         n = Number(n);
         if (Number.isNaN(n) || !Number.isInteger(n) || n < 1) {
@@ -22,7 +26,7 @@
     }
 
     function parse (notation) {
-        var roll = notation.match(diceNotation), mod = 0;
+        var roll = compressNotation(notation).match(diceNotation), mod = 0;
         var msg = 'Invalid dice notation "' + notation + '" could not be parsed.';
         /* istanbul ignore next */
         if (roll.length < 3) {

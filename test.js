@@ -22,6 +22,11 @@ describe('Dice()', function () {
     it('should use Math.random() when no random function is provided', function () {
         assert.ok(dice('1d6') < 7);
     });
+    it('should compress and trim excess spaces', function () {
+        assert.ok(dice('1 d 6 + 1') <= 7);
+        assert.ok(dice('1d6 + 1') <= 7);
+        assert.ok(dice(' 1d6 ') < 7);
+    });
     it('should throw on bad constructions', function () {
         assert.throws(() => dice('0d6'));
         assert.throws(() => dice('1d0'));
