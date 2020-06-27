@@ -31,7 +31,7 @@ const Dice = require('dice-notation-js');
 
 ## Usage
 
-Exposes two functions, `Dice()` and `Dice.parse()`.
+Exposes three functions, `Dice()`, `Dice.detailed()` and `Dice.parse()`.
 
 ### `Dice()`
 
@@ -66,6 +66,31 @@ const prng = require('seedrandom')('hello');
 Dice('3d6+2', prng);
 Dice('3d6', prng) + 2;
 Dice(3, 6, prng) + 2;
+```
+
+### `Dice.detailed()`
+
+**Syntax**:
+
+- `Dice.detailed(notation [, randomFunction])`
+- `Dice.detailed(number, type [, randomFunction])`
+
+Takes a string of dice notation, rolls it like `Dice()`, but returns additional details for your use.
+
+**Arguments**:
+
+- `notation` (*string*): You can pass the funciton a string of dice notation, e.g., `3d6+2`, or `1d20`.
+- `number` (*number*): You can pass the function a number of dice to roll and the number of sides each die should have. This argument is the number of dice to roll.
+- `type` (*number*): You can pass the function a number of dice to roll and the number of sides each die should have. This argument is the number of sides each die should have.
+- `randomFunction` (*function*) *optional*: You may pass a function that returns a random number between 0 and 1 that will be used in place of `Math.random()`, such as to use a seedable PRNG.
+
+**Examples**
+
+```javascript
+var roll = Dice.detailed('3d6+10');
+
+console.log(roll); 
+// -> { number: 3, type: 6, modifier: 10, rolls: [ 2, 1, 6 ], result: 19 } 
 ```
 
 ### `Dice.parse()`

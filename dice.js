@@ -54,13 +54,18 @@
         if (!rnd) {
             rnd = Math.random;
         }
+        var rolls = [];
         var result = 0;
         for (var i = 0; i < a; i++) {
             var die = 0;
             die = Math.floor(rnd() * b) + 1;
             result += die;
+            rolls.push(die);
         }
-        return result;
+        return {
+            rolls : rolls,
+            result : result
+        };
     }
 
     function rollMe (a, b, rnd) {
@@ -79,13 +84,23 @@
         if (typeof b === 'function') {
             rnd = b;
         }
-        return roll(toRoll.number, toRoll.type, rnd) + toRoll.modifier;
+        var rolled = roll(toRoll.number, toRoll.type, rnd);
+        rolled.result += toRoll.modifier;
+        Object.assign(toRoll, rolled);
+        return toRoll;
     }
 
-    var Dice = rollMe;
+    function Dice (a, b, rnd) {
+        return rollMe(a, b, rnd).result;
+    }
+
+    function detailedRoll (a, b, rnd) {
+        return rollMe(a, b, rnd);
+    }
 
     Object.assign(Dice, {
-        parse : parse
+        parse : parse,
+        detailed : detailedRoll
     });
 
     return Dice;

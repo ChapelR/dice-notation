@@ -41,6 +41,22 @@ describe('Dice()', function () {
     });
 });
 
+describe('Dice.detailed()', function () {
+    it('should create accurate, detailed rolls', function () {
+        var detailed = dice.detailed('3d6 + 10', prng);
+        console.log(detailed);
+        assert.strictEqual(3, detailed.rolls.length);
+        assert.strictEqual(3, detailed.number);
+        assert.strictEqual(10, detailed.modifier);
+        assert.strictEqual(19, detailed.result);
+    });
+    it('should output a valid object', function () {
+        var detailed = dice.detailed('1d4', prng);
+        assert.strictEqual("object", typeof detailed);
+        assert.strictEqual('{"number":1,"type":4,"modifier":0,"rolls":[3],"result":3}', JSON.stringify(detailed));
+    });
+});
+
 describe('Dice.parse()', function () {
     const parse = dice.parse('3d6');
     const parsePos = dice.parse('3d6+2');
