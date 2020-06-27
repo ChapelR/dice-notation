@@ -1,6 +1,6 @@
 # Dice Notation
 
-[![Build Status](https://travis-ci.org/ChapelR/dice-notation.svg?branch=master)](https://travis-ci.org/ChapelR/dice-notation) [![Coverage Status](https://coveralls.io/repos/github/ChapelR/dice-notation/badge.svg?branch=master)](https://coveralls.io/github/ChapelR/dice-notation?branch=master)
+[![Build Status](https://travis-ci.org/ChapelR/dice-notation.svg?branch=master)](https://travis-ci.org/ChapelR/dice-notation) [![Coverage Status](https://coveralls.io/repos/github/ChapelR/dice-notation/badge.svg?branch=master)](https://coveralls.io/github/ChapelR/dice-notation?branch=master) [![NPM](https://nodei.co/npm/dice-notation-js.png?mini=true)](https://npmjs.org/package/dice-notation-js)
 
 Parses dice notation and rolls dice.
 
