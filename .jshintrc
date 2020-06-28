@@ -2,5 +2,9 @@
     "curly": true,
     "eqeqeq": true,
     "latedef": true,
-    "undef": true
+    "undef": true,
+    "globals": {
+        "define": false,
+        "module": false
+    }
 }

@@ -44,7 +44,6 @@ describe('Dice()', function () {
 describe('Dice.detailed()', function () {
     it('should create accurate, detailed rolls', function () {
         var detailed = dice.detailed('3d6 + 10', prng);
-        console.log(detailed);
         assert.strictEqual(3, detailed.rolls.length);
         assert.strictEqual(3, detailed.number);
         assert.strictEqual(10, detailed.modifier);

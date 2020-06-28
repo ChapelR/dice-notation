@@ -11,7 +11,7 @@
     'use strict';
 
     var diceNotation = /(\d+?)d(\d+?)(.*)$/i;
-    var modifier = /([+-])(\d+)/i;
+    var modifier = /([+-])(\d+)/;
 
     function compressNotation (notation) {
         return notation.trim().replace(/\s+/g, '');
@@ -27,10 +27,10 @@
 
     function parse (notation) {
         var roll = compressNotation(notation).match(diceNotation), mod = 0;
-        var msg = 'Invalid dice notation "' + notation + '" could not be parsed.';
+        var msg = 'Invalid notation: ' + notation + '';
         /* istanbul ignore next */
         if (roll.length < 3) {
-            throw new Error('Invalid dice notation "' + notation + '" could not be parsed.');
+            throw new Error(msg);
         }
         if (roll[3] && modifier.test(roll[3])) {
             var modParts = roll[3].match(modifier);
@@ -69,7 +69,7 @@
     }
 
     function rollMe (a, b, rnd) {
-        var msg = 'Invalid values passed to dice roller.', toRoll = {};
+        var msg = 'Invalid dice values.', toRoll = {};
         if (typeof a === 'string') {
             toRoll = parse(a);
         } else if (typeof a === 'number') {

@@ -1,6 +1,6 @@
 {
   "name": "dice-notation-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A dice notation parser and roller.",
   "main": "dice.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "lint": "jshint dice.js",
     "build": "terser -c -m -o dist/dice.min.js ./dice.js"
   },
+  "files": [
+    "dice.js"
+  ],
   "author": "Chapel",
   "license": "MIT",
   "devDependencies": {
