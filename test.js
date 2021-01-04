@@ -60,6 +60,8 @@ describe('Dice.parse()', function () {
     const parse = dice.parse('3d6');
     const parsePos = dice.parse('3d6+2');
     const parseNeg = dice.parse('3d6-2');
+    const parseMultDigit = dice.parse('200d70+5000');
+    const parseUpperCase = dice.parse('3D6');
     it('should parse valid dice notation', function () {
         assert.strictEqual(3, parse.number);
         assert.strictEqual(6, parse.type);
@@ -74,5 +76,15 @@ describe('Dice.parse()', function () {
         assert.strictEqual(3, parseNeg.number);
         assert.strictEqual(6, parseNeg.type);
         assert.strictEqual(-2, parseNeg.modifier);
+    });
+    it('should parse multiple-digit numbers accurately', function () {
+        assert.strictEqual(200, parseMultDigit.number);
+        assert.strictEqual(70, parseMultDigit.type);
+        assert.strictEqual(5000, parseMultDigit.modifier);
+    });
+    it('should parse with a capital "D" as well as with a lower case "d"', function () {
+        assert.strictEqual(3, parseUpperCase.number);
+        assert.strictEqual(6, parseUpperCase.type);
+        assert.strictEqual(0, parseUpperCase.modifier);
     });
 });

@@ -10,7 +10,7 @@
 } (this, function () {
     'use strict';
 
-    var diceNotation = /(\d+?)d(\d+?)(.*)$/i;
+    var diceNotation = /(\d+)[dD](\d+)(.*)$/i;
     var modifier = /([+-])(\d+)/;
 
     function compressNotation (notation) {
