@@ -87,4 +87,9 @@ describe('Dice.parse()', function () {
         assert.strictEqual(6, parseUpperCase.type);
         assert.strictEqual(0, parseUpperCase.modifier);
     });
+
+    // whoopsie
+    it('should work with 2-digit numbers', function () {
+        assert.strictEqual(76, dice('10d12', prng));
+    });
 });
